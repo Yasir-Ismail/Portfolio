@@ -37,6 +37,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // WhatsApp Contact Form
+    const whatsappForm = document.getElementById('whatsappForm');
+    if (whatsappForm) {
+        whatsappForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = whatsappForm.querySelector('[name="name"]').value.trim();
+            const email = whatsappForm.querySelector('[name="email"]').value.trim();
+            const message = whatsappForm.querySelector('[name="message"]').value.trim();
+
+            const text = `Hello Yasir! 👋\n\n`
+                + `*Name:* ${name}\n`
+                + `*Email:* ${email}\n\n`
+                + `*Message:*\n${message}`;
+
+            const whatsappURL = `https://wa.me/923370795535?text=${encodeURIComponent(text)}`;
+            window.open(whatsappURL, '_blank');
+        });
+    }
+
     // Simple Typing Effect
     const typingElement = document.querySelector('.gradient-text');
     if (typingElement) {
